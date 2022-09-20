@@ -1,0 +1,22 @@
+
+
+.app-wrapper {
+
+	width: 100vw;
+	height: 100vh;
+
+   
+   	display: grid;
+  	grid-template-rows: auto 1fr;
+   	grid-template-columns: 2fr 10fr;
+
+   	grid-template-areas: 'header header'
+                         'aside content';
+
+}
+
+.app-wrapper-content {
+	grid-area: content;
+	background-color: green;
+	height: 100%;
+}

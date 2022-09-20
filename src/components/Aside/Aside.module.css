@@ -1,0 +1,35 @@
+
+
+.aside {
+	padding-top: 20px;
+	grid-area: aside;
+	background-color: blue;
+	display: flex;
+	justify-content: center;
+}
+
+.menu {
+
+}
+
+.item {
+	margin-top: 10px;
+	color: white;
+}
+
+a.active {
+	color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

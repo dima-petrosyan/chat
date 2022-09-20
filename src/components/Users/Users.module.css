@@ -1,0 +1,38 @@
+
+
+.userItem {
+	background-color: yellow;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border: 1px solid black;
+	margin-bottom: 10px;
+}
+
+@media(min-width: 680px) {
+	.userItem {
+		padding: 0px 50px;
+	}
+}
+
+.userItem img {
+	width: 100px;
+	height: 100px;
+}
+
+.userItem button {
+	min-width: 100px;
+	max-height: 50px;
+	margin: auto 0;
+}
+
+.pages span {
+	display: inline-block;
+	padding: 5px;
+	cursor: pointer;
+}
+
+.selectedPage {
+	font-weight: bold;
+	font-size: 1.2rem;
+}

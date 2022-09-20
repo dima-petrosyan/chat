@@ -1,0 +1,29 @@
+
+.dialogues {
+	background-color: green;
+	padding: 20px;
+	display: grid;
+	grid-template-columns: 4fr 8fr;
+}
+
+.dialogueItems > * + * {
+	margin-top: 10px;
+}
+
+.messagesWrapper {
+	min-height: 130px;
+	background-color: lightgrey;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.textInput {
+	height: 50px;
+}
+
+button {
+	padding: 5px;
+	border: 1px solid #000;
+	background-color: orange;
+}
