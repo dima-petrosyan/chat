@@ -1,9 +1,9 @@
 
 import React from 'react'
-import Dialogues from './Dialogues.js'
-import { addMessageActionCreator } from '../../../src/Redux/dialoguesReducer.js'
+import Dialogues from './Dialogues'
+import { addMessageActionCreator } from '../../../src/Redux/dialoguesReducer'
 import { connect } from 'react-redux'
-import { WithAuthRedirect } from './../HOC/WithAuthRedirect.js'
+import { WithAuthRedirect } from './../HOC/WithAuthRedirect'
 import { compose } from 'redux'
 
 // import { StoreContext } from './../../index.js'

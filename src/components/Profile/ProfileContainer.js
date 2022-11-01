@@ -1,8 +1,8 @@
 import React from 'react'
 import Profile from './Profile'
-import { getProfile, getStatus, updateStatus, savePhoto, saveProfile } from '../../Redux/profileReducer.js'
+import { getProfile, getStatus, updateStatus, savePhoto, saveProfile } from '../../Redux/profileReducer'
 import { connect } from 'react-redux'
-import { WithAuthRedirect } from './../HOC/WithAuthRedirect.js'
+import { WithAuthRedirect } from './../HOC/WithAuthRedirect'
 import { compose } from 'redux'
 
 // - Old decision

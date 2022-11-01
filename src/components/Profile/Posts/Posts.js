@@ -2,10 +2,10 @@
 import React from 'react'
 import style from './Posts.module.css'
 
-import Post from './Post/Post.js'
+import Post from './Post/Post'
 import { Field, reduxForm } from 'redux-form'
-import { required, maxLengthCreator } from '../../../utilites/validators/validators.js'
-import Textarea from '../../common/FormControls/FormControls.js'
+import { required, maxLengthCreator } from '../../../utilites/validators/validators'
+import Textarea from '../../common/FormControls/FormControls'
 
 // class Posts extends React.PureComponent {
 

@@ -1,14 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Users from './Users.js'
-import Preloader from '../common/Preloader.js'
-import { WithAuthRedirect } from './../HOC/WithAuthRedirect.js'
+import Users from './Users'
+import Preloader from '../common/Preloader'
+import { WithAuthRedirect } from './../HOC/WithAuthRedirect'
+import { UserType } from '../../types/types'
+import { AppStateType } from '../../Redux/redux-store'
 
 // Action Creators
-import { followThunk, unfollowThunk, toggleIsFollowingProgress, getUsers, getCurrentPageUsers } from '../../Redux/usersReducer.js'
-import { getAllUsersSuperSelector, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../Redux/usersSelectors.js'
+import { followThunk, unfollowThunk, toggleIsFollowingProgress, getUsers, getCurrentPageUsers } from '../../Redux/usersReducer'
+import { getAllUsersSuperSelector, getPageSize, getTotalUsersCount, getCurrentPage, getIsFetching, getFollowingInProgress } from '../../Redux/usersSelectors'
 
-class UsersContainerMiddle extends React.Component {
+type MapStatePropsType = {
+	currentPage: number
+	pageSize: number
+	isFetching: boolean
+	totalUsersCount: number
+	users: Array<UserType>
+	followingInProgress: Array<number>
+}
+
+type MapDispatchPropsType = {
+	getUsers: (currentPage: number, pageSize: number) => void
+	getCurrentPageUsers: (pageNumber: number, pageSize: number) => void
+	unfollowThunk: (userId: number) => void
+	followThunk: (userId: number) => void
+}
+
+type OwnPropsType = {
+	pageTitle: string
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType & OwnPropsType
+
+class UsersContainerMiddle extends React.Component<PropsType> {
 
 	// constructor(props) {
 	// 	super(props)
@@ -32,7 +56,7 @@ class UsersContainerMiddle extends React.Component {
 		// 	})
 	}
 
-	onPageChanged = (pageNumber) => {
+	onPageChanged = (pageNumber: number) => {
 
 		// - thunk
 		this.props.getCurrentPageUsers(pageNumber, this.props.pageSize)
@@ -76,7 +100,7 @@ class UsersContainerMiddle extends React.Component {
 // 	}
 // }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
 	return {
 		users: getAllUsersSuperSelector(state),
 		pageSize: getPageSize(state),
@@ -121,17 +145,16 @@ const mapStateToProps = (state) => {
 const mapDispatchObjectToProps = {
 	followThunk,
 	unfollowThunk,
-	toggleIsFollowingProgress,
 	getUsers,
-	// getUsersThunkCreator
 	getCurrentPageUsers // - thunk
 }
 
 let withRedirect = WithAuthRedirect(UsersContainerMiddle)
 
-const UsersContainer = connect(mapStateToProps, mapDispatchObjectToProps)(withRedirect); // connect to store
+const UsersContainer = 
+	connect<MapStatePropsType, MapDispatchPropsType, OwnPropsType, AppStateType>(mapStateToProps, mapDispatchObjectToProps)(withRedirect); // connect to store
 
-export default UsersContainer;
+export default UsersContainer
 
 // UsersContainer(for BLL) -> UsersContainerMiddle(for DAL) -> Users(for UI)
 

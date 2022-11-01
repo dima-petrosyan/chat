@@ -1,12 +1,12 @@
 import React from 'react'
 import style from './Login.module.css'
 import { Field, reduxForm } from 'redux-form'
-import { Input } from '../common/FormControls/FormControls.js'
-import { required } from '../../utilites/validators/validators.js'
+import { Input } from '../common/FormControls/FormControls'
+import { required } from '../../utilites/validators/validators'
 import { connect } from 'react-redux'
-import { login } from '../../Redux/authReducer.js'
+import { login } from '../../Redux/authReducer'
 import { Navigate } from 'react-router-dom'
-import { createField } from '../common/FormControls/FormControls.js'
+import { createField } from '../common/FormControls/FormControls'
 
 function Login(props) {
 

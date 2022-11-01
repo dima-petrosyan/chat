@@ -1,8 +1,18 @@
 import React from 'react'
 
-class ProfileStatus extends React.Component {
+type PropsType = {
+	status: string
+	updateStatus: (status: string) => void
+}
 
-	constructor(props) {
+type StateType = {
+	status: string
+	editMode: boolean
+}
+
+class ProfileStatus extends React.Component<PropsType, StateType> {
+
+	constructor(props: PropsType) {
 		super(props)
 		this.handleActivateEditMode = this.handleActivateEditMode.bind(this)
 		this.handleDeactivateEditMode = this.handleDeactivateEditMode.bind(this)	
@@ -31,13 +41,13 @@ class ProfileStatus extends React.Component {
 		this.props.updateStatus(this.state.status)
 	}
 
-	onStatusChange(event) {
+	onStatusChange(event: React.ChangeEvent<HTMLInputElement>) {
 		this.setState({
 			status: event.currentTarget.value
 		})
 	}
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate(prevProps: PropsType, prevState: StateType) {
 		if (prevProps.status !== this.props.status) {
 			this.setState({
 				status: this.props.status

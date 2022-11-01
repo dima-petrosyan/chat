@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
-import Preloader from '../../common/Preloader.js'
-import ProfileStatusWithHooks from './ProfileStatusWithHooks.js'
-import ProfileDataForm from './ProfileDataForm.js'
+import Preloader from '../../common/Preloader'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
+import ProfileDataForm from './ProfileDataForm'
 
 function ProfileInfo(props) {
 

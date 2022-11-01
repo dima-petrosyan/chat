@@ -2,12 +2,12 @@
 import React from 'react'
 import style from './Dialogues.module.css'
 
-import DialogueItem from './DialogueItem/DialogueItem.js'
-import Message from './Message/Message.js'
+import DialogueItem from './DialogueItem/DialogueItem'
+import Message from './Message/Message'
 
 import { Field, reduxForm } from 'redux-form'
-import Textarea from '../common/FormControls/FormControls.js'
-import { required, maxLengthCreator } from '../../utilites/validators/validators.js'
+import Textarea from '../common/FormControls/FormControls'
+import { required, maxLengthCreator } from '../../utilites/validators/validators'
 
 function Dialogues(props) {
 

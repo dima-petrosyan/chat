@@ -2,15 +2,15 @@
 import React from 'react'
 import './App.css'
 
-import HeaderContainer from './components/Header/HeaderContainer.js'
-import Aside from './components/Aside/Aside.js'
-import UsersContainer from './components/Users/UsersContainer.js'
-import Login from './components/Login/Login.js'
+import HeaderContainer from './components/Header/HeaderContainer'
+import Aside from './components/Aside/Aside'
+import UsersContainer from './components/Users/UsersContainer'
+import Login from './components/Login/Login'
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom' 
-import { initializeApp } from './Redux/appReducer.js'
+import { initializeApp } from './Redux/appReducer'
 import { connect } from 'react-redux'
-import Preloader from './components/common/Preloader.js'
+import Preloader from './components/common/Preloader'
 
 import { Suspense } from 'react'
 
@@ -18,10 +18,10 @@ import { Suspense } from 'react'
 // we use lazy loading when we don't need to load page (f.e. DialoguesContainer) when our app start,
 // this page will be loaded when we visit it, webpack doesn't put DialoguesContainer in bundle.js which
 // loades all files when app start
-const DialoguesContainer = React.lazy(() => import('./components/Dialogues/DialoguesContainer.js'))
+const DialoguesContainer = React.lazy(() => import('./components/Dialogues/DialoguesContainer'))
 
 // import ProfileContainer from './components/Profile/ProfileContainer.js'
-const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer.js'))
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'))
 
 class App extends React.Component {
 
@@ -49,7 +49,7 @@ class App extends React.Component {
 									<Route path='/profile/:userId' element={<ProfileContainer /> } />
 
 					         		<Route path='/dialogues/*' element={<DialoguesContainer />} />
-					            	<Route path='/users' element={<UsersContainer /> } />
+					            	<Route path='/users' element={<UsersContainer pageTitle='Samurai' /> } />
 					            	<Route path='/login' element={<Login /> } />	            	
 
 			            		</Routes>

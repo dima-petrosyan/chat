@@ -1,8 +1,20 @@
 import React from 'react'
 import style from './Users.module.css'
 import { NavLink } from 'react-router-dom'
+import { UserType } from '../../types/types'
 
-function Users(props) {
+type PropsType = {
+	totalUsersCount: number
+	pageSize: number
+	currentPage: number
+	onPageChanged: (pageNumber: number) => void
+	users: Array<UserType>
+	followingInProgress: Array<number>
+	unfollowThunk: (userId: number) => void
+	followThunk: (userId: number) => void
+}
+
+const Users: React.FC<PropsType> = (props) => {
 
 	const photoUrl = 'https://best-fly.ru/wp-content/uploads/2020/08/ikonka-malchik.jpg'
 
